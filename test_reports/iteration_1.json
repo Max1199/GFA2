@@ -1,0 +1,20 @@
+{
+  "summary": "First test run for GFA Việt Nam site. Backend: 7/7 pytest tests pass (root, quote validation short-name/short-phone, quote creation, background AI classification + email skip, chat SSE stream + Vietnamese reply + history persistence, chat session-id validation). Frontend desktop (1920): hero + 4 CTAs (call/zalo/facebook tel & href verified), all 8 sections present with correct data-testids, 6 services + 6 service-zalo links, 3 fleet cards + 3 fleet-zalo, 4 gallery items with lightbox open/next/close working, 8 client logos, 4 review cards, google-rating-badge, complete footer (hotline/map iframe/2 addresses/zalo/facebook). Quote form: invalid phone '123' correctly shows Vietnamese toast 'Số điện thoại chưa đúng định dạng Việt Nam' and blocks submit; valid phone submits successfully → quote-success + quote-success-zalo + quote-reset all appear. Chat widget: chat-toggle opens chat-panel, message sends, assistant reply renders in Vietnamese (also confirmed via SSE backend test). Mobile (390x844): mobile-action-bar hidden initially, becomes visible after scrolling past 300px, mobile-bar-call & mobile-bar-zalo present, nav-menu-toggle opens nav-mobile-menu with 5 nav-link-* items, chat-toggle sits above mobile-action-bar (bottom 748 vs bar top 771, no overlap). No console/page errors observed.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "test_report_links": ["/app/backend/tests/backend_test.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "server.py uses deprecated FastAPI @app.on_event('shutdown') – consider migrating to lifespan context manager (non-blocking, cosmetic).",
+    "process_lead background task performs a lead update even on AI failure; ai_* fields remain None but email_status is still set – acceptable but consider adding a retry for the AI call.",
+    "GFA_KNOWLEDGE system prompt is duplicated verbatim per request; fine for now but could be moved to constants module if server.py grows."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "test_credentials": "None (public marketing site, no auth). EMERGENT_LLM_KEY configured; RESEND_API_KEY intentionally empty (email skipped by design).",
+  "seed_data_creation": "Created 2 test leads in MongoDB `leads` collection with TEST_ prefix names via pytest and quote-form playwright submissions.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "backend_test.py at /app/backend/tests/ is pytest-native and covers all critical endpoints. Frontend flows fully validated end-to-end across desktop + mobile viewports. AI lead classification (Claude Sonnet 4.6) working within ~10s. Chat SSE streams properly with Vietnamese output. Note: hero video is 8.7MB; use wait_until='domcontentloaded' rather than 'load' on Playwright navigation.",
+  "rca of the issue": "N/A – no issues found."
+}
