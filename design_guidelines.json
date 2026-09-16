@@ -1,0 +1,136 @@
+{
+  "theme": "dark",
+  "typography": {
+    "font_import": "@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap');",
+    "headings": {
+      "fontFamily": "'Be Vietnam Pro', sans-serif",
+      "weights": ["600", "700", "800"],
+      "tracking": "tracking-tight",
+      "classes": "font-sans font-bold tracking-tight"
+    },
+    "body": {
+      "fontFamily": "'Be Vietnam Pro', sans-serif",
+      "weights": ["400", "500"],
+      "tracking": "tracking-normal",
+      "classes": "font-sans font-normal"
+    },
+    "instruction": "Use 'Be Vietnam Pro' globally. It is strictly required as it renders Vietnamese diacritics perfectly. Do not use Inter or any other generic sans. Typography should be precise, clear, and corporate."
+  },
+  "colors": {
+    "background": "#0A1128",
+    "surface": "#121C3A",
+    "surface_glass": "rgba(18, 28, 58, 0.6)",
+    "primary": "#D4AF37",
+    "primary_hover": "#F3E5AB",
+    "text_primary": "#F8FAFC",
+    "text_secondary": "#94A3B8",
+    "border": "rgba(255, 255, 255, 0.1)",
+    "instruction": "Deep navy/charcoal for background to establish a premium corporate feel. Warm gold for accents (trust + premium) representing 20-year experience. Do not use generic blue."
+  },
+  "visual_enhancers": {
+    "shadows": "Minimal ambient shadows using primary gold with very low opacity (e.g., shadow-[0_4px_30px_rgba(212,175,55,0.1)]). Focus on sharp, clean edges.",
+    "borders": "1px solid border-white/10. Corporate design demands structure over mushy soft shadows.",
+    "glassmorphism": "Apply backdrop-blur-xl and bg-[#121C3A]/60 to sticky elements like headers and the mobile action bar. NEVER use fully transparent backgrounds."
+  },
+  "components": [
+    {
+      "name": "Hero Section",
+      "instructions": "Awwwards-level kinetic hero. Implement a masked line-by-line reveal for the headline '20 năm kinh nghiệm cho thuê xe tại Hà Nội'. Sub-headline explains fleet range + service types. Include 4 CTAs: 'Gọi ngay', 'Zalo', 'Facebook', 'Nhận báo giá'. Add a subtle parallax background image."
+    },
+    {
+      "name": "Trust Strip",
+      "instructions": "Section with 'Vì sao chọn GFA' and stats: 20+ năm, Đội xe 4–45 chỗ, Tài xế kinh nghiệm, 4.7★ Google, 24/7."
+    },
+    {
+      "name": "Corporate Logo Grid",
+      "instructions": "Grid of corporate client logos. Apply grayscale filter by default, transitioning to full color on hover."
+    },
+    {
+      "name": "Services Section",
+      "instructions": "6 cards displaying services. Prioritize 'Thuê xe dài hạn' and 'Xe công vụ'. Each card has a 'Tư vấn qua Zalo' CTA. Use a Bento-style asymmetric grid layout."
+    },
+    {
+      "name": "Fleet Section",
+      "instructions": "Highlight 3 key models. Large, clipped frames with deliberate spotlight photography styling. Include 'Nhắn Zalo' CTA on each."
+    },
+    {
+      "name": "Facilities Gallery",
+      "instructions": "Image gallery of the fleet and facilities with a lightbox feature for viewing."
+    },
+    {
+      "name": "Lead Capture Form",
+      "instructions": "Quote form titled 'Yêu cầu báo giá'. Fields: Họ tên, SĐT, Loại dịch vụ, Ngày cần xe, Ghi chú. Use Shadcn Form components."
+    },
+    {
+      "name": "Google Reviews",
+      "instructions": "3-4 real review cards styled closely to Google's native review aesthetics."
+    },
+    {
+      "name": "AI Chat Widget",
+      "instructions": "Floating widget titled 'Trợ lý tư vấn GFA' powered by Claude. Place on bottom right (desktop)."
+    },
+    {
+      "name": "Mobile Sticky Action Bar",
+      "instructions": "Fixed at the bottom on mobile devices. Contains 'Call' and 'Zalo' quick action buttons. Glassmorphism background."
+    },
+    {
+      "name": "Editorial Marquee",
+      "instructions": "A slow, organic editorial marquee (not a fast tech ticker) communicating trust, premium service, and experience."
+    }
+  ],
+  "grids_layouts": {
+    "bento_grid": "Use grid-cols-1 md:grid-cols-12 for sections like Services. Rely on negative space. Use generous padding (p-8 to p-12).",
+    "spacing": "Sections should have py-24 or py-32 to create breathing room. It is a premium site; avoid cramped elements.",
+    "alignment": "Prioritize optical alignment. Left-align text for readability, particularly in Vietnamese."
+  },
+  "motion": {
+    "scroll": "MANDATORY: Integrate Lenis for smooth momentum scrolling.",
+    "reveals": "Use framer-motion. Focus on speed > animation duration. Scroll reveals should be fast, crisp, and purposeful (fade up, line-reveal).",
+    "micro": "Hover states on interactive elements should be snappy. Use 1px border highlights or subtle scale transformations."
+  },
+  "accessibility": {
+    "contrast": "Guarantee WCAG AA contrast. Gold text on Navy must be highly legible. Use dark gradient overlays on the hero image to ensure white text is visible.",
+    "testing": "All interactive and key informational elements MUST include a data-testid attribute in kebab-case."
+  },
+  "media": {
+    "image_urls": {
+      "hero_background": "https://images.unsplash.com/photo-1626002595481-688505bc19ba",
+      "fleet_lineup": [
+        "https://images.unsplash.com/photo-1565043666747-69f6646db940",
+        "https://images.unsplash.com/photo-1685091955352-4bb8796aef12",
+        "https://images.unsplash.com/photo-1630165356623-266076eaceb6"
+      ],
+      "chauffeur_facilities": [
+        "https://images.unsplash.com/photo-1708525227673-d671b576d1d1",
+        "https://images.unsplash.com/photo-1655827763440-7905302b75ff"
+      ],
+      "corporate_logos": [
+        "https://images.unsplash.com/photo-1775513143262-bccd605c5dd8",
+        "https://images.unsplash.com/photo-1772760110621-d7b6f54c1e42"
+      ]
+    },
+    "instructions": "Do not use placeholders. Use the provided Unsplash URLs. Apply a heavy overlay (e.g., bg-black/60) to the hero image so the kinetic typography stands out clearly."
+  },
+  "instructions_to_main_agent": [
+    "You are building a premium, corporate car rental marketing page in Vietnamese.",
+    "Install and configure Lenis for smooth scrolling.",
+    "Install framer-motion for the kinetic hero line-by-line reveal and section reveals.",
+    "Integrate Lucide React for standard icons (Zalo, Facebook, Call, Map, etc).",
+    "Avoid Shadcn for outer layout/marketing sections; use pure Tailwind/HTML to achieve the requested bespoke, Awwwards-style layout.",
+    "Use Shadcn strictly for interactive logic elements (Form, Input, Dialog, etc).",
+    "Ensure the mobile sticky action bar is cleanly layered with a high z-index and does not conflict with the AI Chat Widget on mobile."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do not converge toward generic, 'on distribution' outputs. Make creative, distinctive frontends.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur). NEVER use fully transparent overlays.",
+    "You MUST NOT apply universal transitions (e.g., transition: all). Add transitions for specific interactive elements.",
+    "You MUST NOT center align the app container. No '.App { text-align: center; }'.",
+    "Use modern button styles relevant to the app style.",
+    "NEVER use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯 for icons. Use Lucide React.",
+    "Every interaction needs micro-animations (hover states, transitions).",
+    "Use 2-3x more spacing than feels comfortable.",
+    "All interactive elements MUST include data-testid.",
+    "Use sonner for toasts if needed."
+  ]
+}
